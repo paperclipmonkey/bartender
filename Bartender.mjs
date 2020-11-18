@@ -63,7 +63,13 @@ class Bartender {
     }
 
     getIngredients() {
-        return this.liquids
+        return Config.get('liquids')
+    }
+
+    reloadIngredients() {
+        this.liquids = {}
+        this.setup(Config.get('liquids'))
+        return true
     }
 }
 

@@ -2,6 +2,7 @@ import WebSocket from 'ws'
 import Bartender from './Bartender.mjs'
 import Recipes from './Recipes.mjs'
 import Logging from './Logging.mjs'
+import Config from './Config.mjs'
 
 const port = 8080
 
@@ -11,6 +12,13 @@ const wss = new WebSocket.Server({ port })
 Logging.log(`Starting WebSocket server on port ${port}`)
 
 wss.on('connection', function connection(ws) {
+    Logging.registerListener((log) => {
+        try {
+            ws.send(JSON.stringify({
+                log
+            }))
+        } catch(e) {}
+    })
     ws.on('message', function incoming(message) {
         try {
             message = JSON.parse(message)
@@ -21,21 +29,34 @@ wss.on('connection', function connection(ws) {
 
         // Listen to messages of type and dispatch them to function handlers
         switch(message.type) {
-            case 'make': 
-                Logging.log(bartender.makeDuration(message.recipe))
-                if(!message.recipe) break;
-                ws.send(JSON.stringify(
-                    bartender.makeDuration(message.recipe)
-                ))
+            case 'make':
+                ws.send(JSON.stringify({
+                    estimate: bartender.makeDuration(message.recipe)
+                }))
                 bartender.make(message.recipe, () => {
-                    ws.send(JSON.stringify('done'))
+                    ws.send(JSON.stringify({
+                        status: 'done'
+                    }))
                 })
                 break
             case 'recipes':
-                ws.send(JSON.stringify(
-                    Recipes.getAvailableRecipes(
-                        bartender.getIngredients()
-                    ))
+                ws.send(JSON.stringify({
+                    recipes: Recipes.getAvailableRecipes(Object.keys(Config.get('liquids')))
+                }))
+                break
+            case 'getLiquids':
+                ws.send(
+                    JSON.stringify({
+                        getLiquids: Config.get('liquids')
+                    })
+                )
+                break
+            case 'setLiquids':
+                Config.set('liquids', message.liquids)
+                ws.send(
+                    JSON.stringify({
+                        setLiquids: bartender.reloadLiquids()
+                    })
                 )
                 break
         }
