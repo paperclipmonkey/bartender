@@ -3,7 +3,9 @@
 import { createRequire } from 'module'
 const require = createRequire(import.meta.url)
 
-const ENABLED = false
+import Config from './Config.mjs'
+
+const ENABLED = Config.get('general.GPO')
 let MCP23017
 
 if (ENABLED) {

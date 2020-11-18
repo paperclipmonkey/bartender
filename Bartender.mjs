@@ -42,7 +42,7 @@ class Bartender {
 
     // Estimate time to dispense for step
     performStepDuration(step) {
-        return Math.max(...step.ingredients.map((ingredient) => {
+        return Math.max(...step.ingredients.map((ingredient) => { // Find the longest duration in the step
             return this.dispenseDuration(ingredient.name, ingredient.amount)
         }))
     }

@@ -34,7 +34,7 @@
         }
     },
     "general": {
-        "GPIO": false,
+        "GPO": false,
         "Servos": false
     }
 }

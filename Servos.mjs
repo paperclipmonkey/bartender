@@ -4,7 +4,9 @@ import Logging from './Logging.mjs'
 import { createRequire } from 'module'
 const require = createRequire(import.meta.url)
 
-const ENABLED = false
+import Config from './Config.mjs'
+const ENABLED = Config.get('general.GPO')
+
 if(ENABLED) {
     let i2cBus = require("i2c-bus")
     let Pca9685Driver = require("pca9685").Pca9685Driver
