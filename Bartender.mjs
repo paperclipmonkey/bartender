@@ -8,38 +8,28 @@ const initialConfig = require('./initial-config.json')
 
 class Bartender {
     constructor() {
-        this.OPTICS = {}
-        this.FLUIDS = {}
+        this.liquids = {}
         this.setup(initialConfig)
     }
 
     setup(config) {
-        for(const name of Object.keys(config.OPTICS)) {
-            this.OPTICS[name] = new Optic(name, config.OPTICS[name].pin)
-        }
-        for (const name of Object.keys(config.FLUIDS)) {
-            this.FLUIDS[name] = new Fluid(name, config.FLUIDS[name].pin)
+        for (const [name, value] of Object.entries(config.liquids)) {
+            this.liquids[name] = value.type ? 
+                new Optic(name, value.pin)
+                : new Pump(name, value.pin)
         }
     }
 
+    // Estimate the dispense duration in ms
     dispenseDuration(ingredient, amount) {
-        // Search optics and fluids for ingredient
-        if (ingredient in this.OPTICS) {
-            return this.OPTICS[ingredient].dispenseDuration(amount)
-        } else if (ingredient in this.FLUIDS) {
-            return this.FLUIDS[ingredient].dispenseDuration(amount)
-        }
+        if (!ingredient in this.liquids) return Logging.log(`ingredient ${ingredient} not found`)
+        return this.liquids[ingredient].dispenseDuration(amount)
     }
 
+    // Perform a dispense of an ingredient
     async dispense(ingredient, amount) {
-        // Search optics and fluids for ingredient
-        if(ingredient in this.OPTICS) {
-            await this.OPTICS[ingredient].dispense(amount)
-        } else if (ingredient in this.FLUIDS) {
-            await this.FLUIDS[ingredient].dispense(amount)
-        } else {
-           return Logging.log(`ingredient ${ingredient} not found`)
-        }
+        if (!ingredient in this.liquids) return Logging.log(`ingredient ${ingredient} not found`)
+        await this.liquids[ingredient].dispense(amount)
     }
 
     async performStep(step) {
@@ -77,10 +67,7 @@ class Bartender {
     }
 
     getIngredients() {
-        return [
-            ...Object.keys(this.OPTICS),
-            ...Object.keys(this.FLUIDS)
-        ]
+        return this.liquids
     }
 }
 
