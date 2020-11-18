@@ -9,9 +9,12 @@ const port = 8080
 const bartender = new Bartender()
 
 const wss = new WebSocket.Server({ port })
+
 Logging.log(`Starting WebSocket server on port ${port}`)
 
 wss.on('connection', function connection(ws) {
+
+    // When a new client connects register them as the new log listener
     Logging.registerListener((log) => {
         try {
             ws.send(JSON.stringify({
@@ -19,12 +22,12 @@ wss.on('connection', function connection(ws) {
             }))
         } catch(e) {}
     })
+
     ws.on('message', function incoming(message) {
         try {
             message = JSON.parse(message)
         } catch (e) {
-            Logging.error(e)
-            return
+            return Logging.error(e)
         }
 
         // Listen to messages of type and dispatch them to function handlers
@@ -39,11 +42,13 @@ wss.on('connection', function connection(ws) {
                     }))
                 })
                 break
+
             case 'recipes':
                 ws.send(JSON.stringify({
                     recipes: Recipes.getAvailableRecipes(Object.keys(Config.get('liquids')))
                 }))
                 break
+
             case 'getLiquids':
                 ws.send(
                     JSON.stringify({
@@ -51,6 +56,7 @@ wss.on('connection', function connection(ws) {
                     })
                 )
                 break
+                
             case 'setLiquids':
                 Config.set('liquids', message.liquids)
                 ws.send(
@@ -62,15 +68,3 @@ wss.on('connection', function connection(ws) {
         }
     })
 })
-
-function broadcastStatus (percentage) {
-    const message = {
-        recipeStatus: percentage
-    }
-
-    wss.clients.forEach(function each(client) {
-        if (client.readyState === WebSocket.OPEN) {
-            client.send(message)
-        }
-    })
-}
