@@ -11,7 +11,7 @@ class Bartender {
 
     setup(liquids) {
         for (const [name, value] of Object.entries(liquids)) {
-            this.liquids[name] = value.type ? 
+            this.liquids[name] = value.type === 'optic' ? 
                 new Optic(name, value.pin)
                 : new Pump(name, value.pin)
         }
@@ -53,7 +53,6 @@ class Bartender {
             return accum + this.performStepDuration(step)
         }, 0)
     }
-
 
     async make(recipe, cback) {
         for(let step of recipe.steps) {
