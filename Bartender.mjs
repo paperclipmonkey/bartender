@@ -1,19 +1,16 @@
 import Optic from './Optic.mjs'
-import Fluid from './Pump.mjs'
+import Pump from './Pump.mjs'
 import Logging from './Logging.mjs'
-import { createRequire } from 'module'
-const require = createRequire(import.meta.url)
-
-const initialConfig = require('./initial-config.json')
+import Config from './Config.mjs'
 
 class Bartender {
     constructor() {
         this.liquids = {}
-        this.setup(initialConfig)
+        this.setup(Config.get('liquids'))
     }
 
-    setup(config) {
-        for (const [name, value] of Object.entries(config.liquids)) {
+    setup(liquids) {
+        for (const [name, value] of Object.entries(liquids)) {
             this.liquids[name] = value.type ? 
                 new Optic(name, value.pin)
                 : new Pump(name, value.pin)

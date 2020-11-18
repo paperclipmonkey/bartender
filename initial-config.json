@@ -32,5 +32,9 @@
             "pin": 3,
             "type": "pump"
         }
+    },
+    "general": {
+        "GPIO": false,
+        "Servos": false
     }
 }
