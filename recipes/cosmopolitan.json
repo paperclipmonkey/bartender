@@ -1,0 +1,26 @@
+{
+    "name": "Cosmopolitan",
+    "description": "",
+    "steps": [
+        {
+            "ingredients": [
+                {
+                    "name": "vodka",
+                    "amount": 75
+                },
+                {
+                    "name": "cointreau",
+                    "amount": 50
+                },
+                {
+                    "name": "lime",
+                    "amount": 25
+                },
+                {
+                    "name": "cranberry",
+                    "amount": 10
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,14 @@
+{
+    "OPTICS": {
+        "gin": 0,
+        "vodka": 1,
+        "tequila": 2,
+        "vermouth": 3
+    },
+    "FLUIDS": {
+        "soda": 0,
+        "lemonade": 1,
+        "oj": 2,
+        "grenadine": 3
+    }
+}

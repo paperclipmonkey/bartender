@@ -1,0 +1,26 @@
+{
+    "name": "Tequila Sunrise",
+    "description": "The tequila sunrise is a cocktail made of tequila, orange juice, and grenadine syrup. It's served unmixed in a tall glass. The modern drink originates from Sausalito, California in the early 1970s.",
+    "steps": [
+        {
+            "ingredients": [
+                {
+                    "name": "tequila",
+                    "amount": 50
+                },
+                {
+                    "name": "oj",
+                    "amount": 100
+                }
+            ]
+        },
+        {
+            "ingredients": [
+                {
+                    "name": "grenadine",
+                    "amount": 12.5
+                }
+            ]
+        }
+    ]
+}

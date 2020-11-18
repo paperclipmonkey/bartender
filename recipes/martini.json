@@ -1,0 +1,18 @@
+{
+    "name": "Martini",
+    "description": "Simple, like a brick to your brain",
+    "steps": [
+        {
+            "ingredients": [
+                {
+                    "name": "gin",
+                    "amount": 200
+                },
+                {
+                    "name": "vermouth",
+                    "amount": 50
+                }
+            ]
+        }
+    ]
+}
