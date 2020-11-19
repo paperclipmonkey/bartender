@@ -1,8 +1,8 @@
 // https://www.npmjs.com/package/pca9685
 import Logging from './Logging.mjs'
 
-import { createRequire } from 'module'
-const require = createRequire(import.meta.url)
+// import { createRequire } from 'module'
+// const require = createRequire(import.meta.url)
 
 import Config from './Config.mjs'
 const ENABLED = Config.get('general.GPO')
