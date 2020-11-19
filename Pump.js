@@ -1,9 +1,8 @@
-import Logging from './Logging.mjs'
-// Dispense amount
-class Pump {
-    
-    static ML_PER_S = 25;
+const Logging= require('./Logging.js')
 
+const ML_PER_S = 25;
+
+class Pump {
     constructor(name, pin) {
         this.name = name;
         this.pin = pin;
@@ -29,4 +28,4 @@ class Pump {
     }
 }
 
-export default Pump;
+module.exports = Pump;

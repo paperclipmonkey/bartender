@@ -1,8 +1,8 @@
-import WebSocket from 'ws'
-import Bartender from './Bartender.mjs'
-import Recipes from './Recipes.mjs'
-import Logging from './Logging.mjs'
-import Config from './Config.mjs'
+const WebSocket = require('ws')
+const Bartender = require('./Bartender.js')
+const Recipes = require('./Recipes.js')
+const Logging = require('./Logging.js')
+const Config = require('./Config.js')
 
 const port = 8080
 

@@ -16,4 +16,4 @@ class Logging {
 
 const logging = new Logging()
 
-export default logging;
+module.exports = logging;

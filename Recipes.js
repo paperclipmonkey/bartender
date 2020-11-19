@@ -1,8 +1,8 @@
 
 const RECIPE_DIRECTORY = './recipes'
 
-import path from 'path'
-import fs from 'fs'
+const path= require('path')
+const fs= require('fs')
 
 class Recipes {
     constructor() {
@@ -10,7 +10,7 @@ class Recipes {
         this.setup();
     }
 
-    // Read the recipes in from directory
+    // Read the recipes in= require(directory
     setup() {
         fs.readdirSync(RECIPE_DIRECTORY).forEach((file) => {
                 this.recipes.push(
@@ -38,4 +38,4 @@ class Recipes {
 
 const recipes = new Recipes()
 
-export default recipes;
+module.exports = recipes;

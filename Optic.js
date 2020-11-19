@@ -1,15 +1,14 @@
-import Pump from './Pump.mjs'
-import Servo from './Servos.mjs'
-import Logging from './Logging.mjs'
+const Pump = require('./Pump.js')
+const Servo = require('./Servos.js')
+const Logging = require('./Logging.js')
+
+const OPEN_TIME = 5000
+const OPENING_TIME = 2000
+const CLOSING_TIME = 1800
+const OPENING_TORQUE = 0.7 // OUT OF 1
+const CLOSING_TORQUE = 0.4 // OUT OF 1 
 
 class Optic extends Pump {
-
-    static OPEN_TIME = 5000
-    static OPENING_TIME = 2000
-    static CLOSING_TIME = 1800
-    static OPENING_TORQUE = 0.7 // OUT OF 1
-    static CLOSING_TORQUE = 0.4 // OUT OF 1
-
     async dispense(amount) {
         Logging.log(`Dispensing ${amount}ml of ${this.name}`)
         await this.open()
@@ -41,4 +40,4 @@ class Optic extends Pump {
     }
 }
 
-export default Optic
+module.exports = Optic

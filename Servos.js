@@ -1,10 +1,10 @@
 // https://www.npmjs.com/package/pca9685
-import Logging from './Logging.mjs'
+const Logging= require('./Logging.js')
 
-// import { createRequire } from 'module'
+// const { createRequire }= require('module'
 // const require = createRequire(import.meta.url)
 
-import Config from './Config.mjs'
+const Config= require('./Config.js')
 const ENABLED = Config.get('general.GPO')
 
 if(ENABLED) {
@@ -57,4 +57,4 @@ class Servos {
 }
 
 const servo = new Servos()
-export default servo
+module.exports = servo

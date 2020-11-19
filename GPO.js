@@ -1,9 +1,6 @@
 // General purpose _Output_
 
-import { createRequire } from 'module'
-const require = createRequire(import.meta.url)
-
-import Config from './Config.mjs'
+const Config = require('./Config.js')
 
 const ENABLED = Config.get('general.GPO')
 let MCP23017

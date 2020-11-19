@@ -34,7 +34,7 @@
         }
     },
     "general": {
-        "GPO": true,
+        "GPO": false,
         "Servos": false
     }
 }

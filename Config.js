@@ -1,4 +1,4 @@
-import { createRequire } from 'module'
+// const { createRequire }= require('module'
 // const require = createRequire(import.meta.url)
 
 
@@ -36,4 +36,4 @@ class Config {
 
 const config = new Config()
 
-export default config
+module.exports = config

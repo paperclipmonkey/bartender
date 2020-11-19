@@ -1,7 +1,7 @@
-import Optic from './Optic.mjs'
-import Pump from './Pump.mjs'
-import Logging from './Logging.mjs'
-import Config from './Config.mjs'
+const Optic = require('./Optic.js')
+const Pump = require('./Pump.js')
+const Logging = require('./Logging.js')
+const Config = require('./Config.js')
 
 class Bartender {
     constructor() {
@@ -69,4 +69,4 @@ class Bartender {
     }
 }
 
-export default Bartender
+module.exports = Bartender
