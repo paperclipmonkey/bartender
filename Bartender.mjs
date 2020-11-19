@@ -62,10 +62,6 @@ class Bartender {
         Logging.log('- - - - - - Finished making drink - - - - - - - ')
     }
 
-    getIngredients() {
-        return Config.get('liquids')
-    }
-
     reloadIngredients() {
         this.liquids = {}
         this.setup(Config.get('liquids'))
