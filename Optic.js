@@ -12,20 +12,21 @@ class Optic extends Pump {
     async dispense(amount) {
         Logging.log(`Dispensing ${amount}ml of ${this.name}`)
         await this.open()
-        await this.delay(Optic.OPEN_TIME)
+        await this.delay(OPEN_TIME)
         await this.close()
     }
 
     // Estimate how long it'll take to dispense in ms
     dispenseDuration() {
-        return (Optic.OPENING_TIME + Optic.OPEN_TIME + Optic.CLOSING_TIME)
+        return (OPENING_TIME + OPEN_TIME + CLOSING_TIME)
     }
     
     async open() {
         Logging.log(`Opening ${this.name}`)
         // Motor
-        Servo.setDutyCycle(this.pin, Optic.OPENING_TORQUE)
-        await this.delay(Optic.OPENING_TIME)
+        // Servo.setDutyCycle(this.pin, OPENING_TORQUE)
+        Servo.setDutyCycle(this.pin, OPENING_TORQUE)
+        await this.delay(OPENING_TIME)
         Servo.setOff(this.pin)
         Logging.log(`Opened ${this.name}`)
     }
@@ -33,8 +34,9 @@ class Optic extends Pump {
     async close() {
         Logging.log(`Closing ${this.name}`)
         // Motor up for 2 seconds
-        Servo.setDutyCycle(this.pin, Optic.CLOSING_TORQUE)
-        await this.delay(Optic.CLOSING_TIME) // Stop
+        // Servo.setDutyCycle(this.pin, CLOSING_TORQUE)
+        Servo.setDutyCycle(this.pin, CLOSING_TORQUE)
+        await this.delay(CLOSING_TIME) // Stop
         Servo.setOff(this.pin)
         Logging.log(`Closed ${this.name}`)
     }

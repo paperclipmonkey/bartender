@@ -1,3 +1,4 @@
+require('dotenv').config()
 const WebSocket = require('ws')
 const Bartender = require('./Bartender.js')
 const Recipes = require('./Recipes.js')
@@ -24,10 +25,11 @@ wss.on('connection', function connection(ws) {
     })
 
     ws.on('message', function incoming(message) {
+        console.log(message)
         try {
             message = JSON.parse(message)
         } catch (e) {
-            return Logging.error(e)
+            return console.error(e)
         }
 
         // Listen to messages of type and dispatch them to function handlers

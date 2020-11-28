@@ -5,11 +5,13 @@ const Logging= require('./Logging.js')
 // const require = createRequire(import.meta.url)
 
 const Config= require('./Config.js')
-const ENABLED = Config.get('general.GPO')
+const ENABLED = Config.get('general.Servos')
+let i2cBus
+let Pca9685Driver
 
 if(ENABLED) {
-    let i2cBus = require("i2c-bus")
-    let Pca9685Driver = require("pca9685").Pca9685Driver
+    i2cBus = require("i2c-bus")
+    Pca9685Driver = require("pca9685").Pca9685Driver
 }
 
 class Servos {
@@ -37,7 +39,7 @@ class Servos {
     setOff(channel) {
         if (channel < 0 || channel > 12) throw new Error('Channel not known')
         if (!ENABLED) return
-        this.driver.channelOff(channel)
+        this.driver.setPulseLength(channel, 1500) // 1500 === off
     }
 
     setOn(channel) {
@@ -47,12 +49,15 @@ class Servos {
         this.driver.channelOn(channel)
     }
 
+    // 0.5 = stop
+    // 0 = full one way
+    // 1 = full other way
     setDutyCycle(channel, amount) {
         if (!ENABLED) return
         if (amount < 0 || amount > 1) throw new Error('Duty cycle between 0 - 1')
         if (channel < 0 || channel > 12) throw new Error('Channel not known')
-        // Set the duty cycle to 25% for channel 8
-        this.driver.setDutyCycle(8, amount)
+        const pulseLength = 1000 + (amount * 1000)
+        this.driver.setPulseLength(channel, pulseLength)
     }
 }
 

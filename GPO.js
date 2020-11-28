@@ -6,7 +6,27 @@ const ENABLED = Config.get('general.GPO')
 let MCP23017
 
 if (ENABLED) {
-    const MCP23017 = require('node-mcp23017')
+    MCP23017 = require('./mcp23017')
+}
+
+let mcp
+
+const pin = 0;
+
+// var k = new MCP23017(1, 0x20);
+// k.setPinDirection(pin, 0);// Set pin 0 as output
+// k.writePin(pin, 1); // Turn pin 1 on.
+// k.setPinPullup(pin, 0);
+
+let pinState = true;
+
+async function loop() {
+    while (true) {
+        console.log("Setting pin to: " + pinState)
+        pinState = !pinState;
+        k.writePin(pin, pinState ? 0 : 1); // Turn pin 1 on.
+        await delay(1000);
+    }
 }
 
 /*
@@ -20,33 +40,28 @@ class GPO {
     constructor() {
         this.options = {
             address: 0x20, //default: 0x20
-            device: '/dev/i2c-1', // '/dev/i2c-1' on model B | '/dev/i2c-0' on model A
-            debug: true //default: false
+            device: 1, // '/dev/i2c-1' on model B | '/dev/i2c-0' on model A
         }
         this.driver = this.setup()
     }
     
     setup() {
         if (!ENABLED) return
-        const mcp = new MCP23017({
-            address: 0x20, //default: 0x20
-            device: '/dev/i2c-1', // '/dev/i2c-1' on model B | '/dev/i2c-0' on model A
-            debug: true //default: false
-        });
+        mcp = new MCP23017(this.options.device, this.options.address);
 
         //set all GPIOS to be OUTPUTS
-        for (var i = 0; i < 16; i++) {
-            mcp.pinMode(i, mcp.OUTPUT)
-            //mcp.pinMode(i, mcp.INPUT); //if you want them to be inputs
-            //mcp.pinMode(i, mcp.INPUT_PULLUP); //if you want them to be pullup inputs
+        for (let pin = 0; pin < 16; pin++) {
+            mcp.setPinDirection(pin, 0) // Output
+            mcp.setPinPullup(pin, 0)
+            mcp.writePin(pin, 1) // Turn pin off.
         }
     }
 
     setPin(pin, value) {
         if (!ENABLED) return
-        mcp.digitalWrite(pin, value ? mcp.HIGH : mcp.LOW) //set GPIO A Pin 0 to state HIGH
+        mcp.writePin(pin, value ? 0 : 1)
     }
 }
 
 const gpo = new GPO()
-export default gpo
+module.exports = gpo

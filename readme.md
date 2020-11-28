@@ -1,9 +1,12 @@
 # Bartender
+Raspberry Pi drinks mixer.
 
-## TODO
- * Check working with gpio and servos
- * Send back % done (work out total timing of all steps perhaps?)
- * Link up with gpio pins
- * Design menu
- * Design details page
- * Design dispensing page
+Controllable through a websocket using JSON.
+
+## Running
+To run, perform an install of the npm modules `npm install` then start the WebSocket server using `node Server.js`
+
+## Commands
+
+
+## Screenshots

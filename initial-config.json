@@ -4,10 +4,6 @@
             "pin": 0,
             "type": "optic"
         },
-        "vodka": {
-            "pin": 1,
-            "type": "optic"
-        },
         "tequila": {
             "pin": 2,
             "type": "optic"
@@ -16,7 +12,7 @@
             "pin": 3,
             "type": "optic"
         },
-        "soda": {
+        "vodka": {
             "pin": 0,
             "type": "pump"
         },
@@ -28,13 +24,9 @@
             "pin": 2,
             "type": "pump"
         },
-        "grenadine": {
+        "coke": {
             "pin": 3,
             "type": "pump"
         }
-    },
-    "general": {
-        "GPO": false,
-        "Servos": false
     }
 }
