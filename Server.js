@@ -5,7 +5,7 @@ const Recipes = require('./Recipes.js')
 const Logging = require('./Logging.js')
 const Config = require('./Config.js')
 
-const port = 8080
+const port = process.env.PORT || 8080
 
 const bartender = new Bartender()
 

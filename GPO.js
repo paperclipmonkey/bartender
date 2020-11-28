@@ -1,9 +1,7 @@
 // General purpose _Output_
-
-const Config = require('./Config.js')
-
-const ENABLED = Config.get('general.GPO')
+const ENABLED = process.env.GPO === 'true'
 let MCP23017
+
 
 if (ENABLED) {
     MCP23017 = require('./mcp23017')

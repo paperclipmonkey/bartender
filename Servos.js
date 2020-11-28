@@ -1,11 +1,7 @@
 // https://www.npmjs.com/package/pca9685
 const Logging= require('./Logging.js')
 
-// const { createRequire }= require('module'
-// const require = createRequire(import.meta.url)
-
-const Config= require('./Config.js')
-const ENABLED = Config.get('general.Servos')
+const ENABLED = process.env.SERVOS === true
 let i2cBus
 let Pca9685Driver
 
