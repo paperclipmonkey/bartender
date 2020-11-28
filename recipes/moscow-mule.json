@@ -1,28 +1,24 @@
 {
-    "name": "Cosmopolitan",
+    "name": "Moscow Mule",
     "description": "",
     "intro": "",
     "pre": "",
     "post": "",
-    "glass": "martini",
+    "glass": "tumbler",
     "steps": [
         {
             "ingredients": [
                 {
                     "name": "vodka",
-                    "amount": 75
+                    "amount": 150
                 },
                 {
-                    "name": "cointreau",
-                    "amount": 50
+                    "name": "gingerbeer",
+                    "amount": 400
                 },
                 {
                     "name": "lime",
-                    "amount": 25
-                },
-                {
-                    "name": "cranberry",
-                    "amount": 10
+                    "amount": 20
                 }
             ]
         }

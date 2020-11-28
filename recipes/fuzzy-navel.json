@@ -1,0 +1,22 @@
+{
+    "name": "Fuzzy Navel",
+    "description": "One of the easiest cocktails, but a fan favourite! Bring back the 70s I say!",
+    "intro": "Fruity and simple",
+    "pre": "Add a few ice cubes to a tall glass",
+    "post": "Garnish with an orange slice",
+    "glass": "tall",
+    "steps": [
+        {
+            "ingredients": [
+                {
+                    "name": "schnapps",
+                    "amount": 200
+                },
+                {
+                    "name": "oj",
+                    "amount": 200
+                }
+            ]
+        }
+    ]
+}

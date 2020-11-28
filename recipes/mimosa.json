@@ -1,0 +1,26 @@
+{
+    "name": "Mimosa",
+    "description": "Booze up your breakfast",
+    "intro": "Great over brunch",
+    "pre": "",
+    "post": "",
+    "glass": "wine",
+    "steps": [
+        {
+            "ingredients": [
+                {
+                    "name": "sparkling wine",
+                    "amount": 200
+                },
+                {
+                    "name": "oj",
+                    "amount": 200
+                },
+                {
+                    "name": "vodka",
+                    "amount": 50
+                }
+            ]
+        }
+    ]
+}

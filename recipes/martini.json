@@ -1,6 +1,10 @@
 {
     "name": "Martini",
     "description": "Simple, like a brick to your brain",
+    "intro": "",
+    "pre": "",
+    "post": "",
+    "glass": "martini",
     "steps": [
         {
             "ingredients": [

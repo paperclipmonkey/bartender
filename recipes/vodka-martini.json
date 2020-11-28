@@ -1,6 +1,10 @@
 {
     "name": "Vodka Martini",
-    "description": "Neither shaken or stirred",
+    "description": "A classic of 007, this drink has a licence to kill.",
+    "intro": "Neither shanken or stirred, simply dispensed",
+    "pre": "",
+    "post": "",
+    "glass": "martini",
     "steps": [
         {
             "ingredients": [

@@ -1,0 +1,26 @@
+{
+    "name": "White Sangria",
+    "description": "A white wine version of the classic. An extra splash of vodka makes it extra boozy.",
+    "intro": "A white wine version of the classic",
+    "pre": "",
+    "post": "",
+    "glass": "wine",
+    "steps": [
+        {
+            "ingredients": [
+                {
+                    "name": "white wine",
+                    "amount": 200
+                },
+                {
+                    "name": "oj",
+                    "amount": 200
+                },
+                {
+                    "name": "vodka",
+                    "amount": 50
+                }
+            ]
+        }
+    ]
+}

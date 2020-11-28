@@ -1,6 +1,10 @@
 {
     "name": "Screwdriver",
     "description": "This simple mixture of vodka and orange juice reportedly gets its name from original tool used to stir the drink--a screwdriver",
+    "intro": "",
+    "pre": "",
+    "post": "",
+    "glass": "highball",
     "steps": [
         {
             "ingredients": [

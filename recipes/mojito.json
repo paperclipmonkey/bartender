@@ -1,0 +1,30 @@
+{
+    "name": "Mojito",
+    "description": "",
+    "intro": "The taste of Cuba",
+    "pre": "Fill a glass with ice",
+    "post": "garnish with a sprig of mint",
+    "glass": "highball",
+    "steps": [
+        {
+            "ingredients": [
+                {
+                    "name": "whiterum",
+                    "amount": 75
+                },
+                {
+                    "name": "simplesyrup",
+                    "amount": 10
+                },
+                {
+                    "name": "lime",
+                    "amount": 20
+                },
+                {
+                    "name": "soda",
+                    "amount": 20
+                }
+            ]
+        }
+    ]
+}
