@@ -29,7 +29,7 @@ async function loop() {
 
 /*
   By default all GPIOs are defined as INPUTS.
-  You can set them all the be OUTPUTs by using the pinMode-Methode (see below),
+  You can set them all the be OUTPUTs by using the pinMode-Method (see below),
   You can also disable the debug option by simply not passing it to the constructor
   or by setting it to false
 */
