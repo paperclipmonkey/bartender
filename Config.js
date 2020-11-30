@@ -1,7 +1,3 @@
-// const { createRequire }= require('module'
-// const require = createRequire(import.meta.url)
-
-
 class Config {
     constructor() {
         this.config = this.initialConfig()

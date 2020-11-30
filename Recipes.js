@@ -1,8 +1,7 @@
+const path = require('path')
+const fs = require('fs')
 
 const RECIPE_DIRECTORY = './recipes'
-
-const path= require('path')
-const fs= require('fs')
 
 class Recipes {
     constructor() {
@@ -10,7 +9,7 @@ class Recipes {
         this.setup();
     }
 
-    // Read the recipes in= require(directory
+    // Read the recipes from directory
     setup() {
         fs.readdirSync(RECIPE_DIRECTORY).forEach((file) => {
                 this.recipes.push(

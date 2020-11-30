@@ -1,10 +1,11 @@
-// https://www.npmjs.com/package/pca9685
 const Logging= require('./Logging.js')
 
 const ENABLED = process.env.SERVOS === true
 let i2cBus
 let Pca9685Driver
 
+// We can't load these packages on a !pi platform
+// This allows for development on a different machine
 if(ENABLED) {
     i2cBus = require("i2c-bus")
     Pca9685Driver = require("pca9685").Pca9685Driver

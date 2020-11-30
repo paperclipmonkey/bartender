@@ -9,24 +9,6 @@ if (ENABLED) {
 
 let mcp
 
-const pin = 0;
-
-// var k = new MCP23017(1, 0x20);
-// k.setPinDirection(pin, 0);// Set pin 0 as output
-// k.writePin(pin, 1); // Turn pin 1 on.
-// k.setPinPullup(pin, 0);
-
-let pinState = true;
-
-async function loop() {
-    while (true) {
-        console.log("Setting pin to: " + pinState)
-        pinState = !pinState;
-        k.writePin(pin, pinState ? 0 : 1); // Turn pin 1 on.
-        await delay(1000);
-    }
-}
-
 /*
   By default all GPIOs are defined as INPUTS.
   You can set them all the be OUTPUTs by using the pinMode-Method (see below),
