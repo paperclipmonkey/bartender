@@ -1,0 +1,18 @@
+{
+    "name": "White Wine",
+    "description": "Straight up",
+    "intro": "",
+    "pre": "",
+    "post": "",
+    "glass": "wine",
+    "steps": [
+        {
+            "ingredients": [
+                {
+                    "name": "white wine",
+                    "amount": 200
+                }
+            ]
+        }
+    ]
+}
