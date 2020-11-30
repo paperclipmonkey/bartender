@@ -33,6 +33,7 @@ class Servos {
             Logging.log("Initialization done")
         })
     }
+    
     setOff(channel) {
         if (channel < 0 || channel > 12) throw new Error('Channel not known')
         if (!ENABLED) return
