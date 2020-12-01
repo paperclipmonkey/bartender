@@ -1,0 +1,35 @@
+{
+    "gin": {
+        "percentage": 40
+    },
+    "tequila": {
+        "percentage": 40
+    },
+    "vermouth": {
+        "percentage": 17
+    },
+    "vodka": {
+        "percentage": 40
+    },
+    "rum": {
+        "percentage": 40
+    },
+    "brandy": {
+        "percentage": 40
+    },
+    "wine": {
+        "percentage": 13
+    },
+    "red wine": {
+        "percentage": 13
+    },
+    "white wine": {
+        "percentage": 13
+    },
+    "whiskey": {
+        "percentage": 40
+    },
+    "absinthe": {
+        "percentage": 70
+    }
+}
