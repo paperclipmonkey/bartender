@@ -1,6 +1,6 @@
 const Logging= require('./Logging.js')
 
-const ENABLED = process.env.SERVOS === true
+const ENABLED = process.env.SERVOS === 'true'
 let i2cBus
 let Pca9685Driver
 
