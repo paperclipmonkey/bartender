@@ -4,15 +4,15 @@
   "description": "A remote bartender",
   "main": "Server.js",
   "scripts": {
-    "watch": "nodemon"
+    "watch": "pm2 start Server.js --watch"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "dotenv": "^8.2.0",
     "i2c-bus": "^5.2.1",
-    "nodemon": "^2.0.6",
     "pca9685": "^4.0.3",
+    "pm2": "^4.5.0",
     "ws": "^7.4.0"
   },
   "devDependencies": {}
