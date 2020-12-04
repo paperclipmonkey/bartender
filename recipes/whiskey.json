@@ -1,5 +1,5 @@
 {
-    "name": "Vodka",
+    "name": "Whiskey",
     "description": "Straight up long double shot",
     "intro": "",
     "pre": "",
@@ -9,7 +9,7 @@
         {
             "ingredients": [
                 {
-                    "name": "vodka",
+                    "name": "whiskey",
                     "amount": 70
                 }
             ]

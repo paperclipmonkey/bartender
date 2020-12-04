@@ -1,8 +1,8 @@
 {
     "name": "Screwdriver",
-    "description": "This simple mixture of vodka and orange juice reportedly gets its name from original tool used to stir the drink--a screwdriver",
-    "intro": "",
-    "pre": "",
+    "description": "This simple mixture of vodka and orange juice reportedly gets its name from the original tool used to stir the drink - a 🪛",
+    "intro": "A simple mix of OJ and vodka",
+    "pre": "1. Add a few cubes of ice to a highball glass \n 2. place in to the bartender \n 3. click 'mix'",
     "post": "",
     "glass": "highball",
     "steps": [
