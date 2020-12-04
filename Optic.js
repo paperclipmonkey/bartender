@@ -4,7 +4,7 @@ const Logging = require('./Logging.js')
 
 const OPEN_TIME = 5000 // Hold open time waiting for optic to drain
 const OPENING_TIME = 2000
-const CLOSING_TIME = 1800
+const CLOSING_TIME = 3500
 const OPENING_TORQUE = 0.7 // 0-1. Needs to be strong enough to move the optic 
 const CLOSING_TORQUE = 0.4 // 0-1. Ensure we don't hit the stops
 
