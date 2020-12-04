@@ -1,7 +1,7 @@
 const Logging= require('./Logging.js')
 const GPO = require('./GPO.js')
 
-const ML_PER_S = 25;
+const ML_PER_S = process.env.PUMP_ML_PER_S || 20;
 
 class Pump {
     constructor(name, pin) {
