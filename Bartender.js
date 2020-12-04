@@ -58,8 +58,8 @@ class Bartender {
         for (let step of recipe.steps) {
             await this.performStep(step)
         }
-        if (cback) cback()
         Logging.log('- - - - - - Finished making drink - - - - - - - ')
+        if (cback) cback(recipe)
     }
 
     reloadIngredients() {
