@@ -51,19 +51,19 @@ wss.on('connection', function connection(ws) {
                 }))
                 break
 
-            case 'getLiquids':
+            case 'getIngredients':
                 ws.send(
                     JSON.stringify({
-                        getLiquids: Config.get('liquids')
+                        getIngredients: Config.get('liquids')
                     })
                 )
                 break
                 
-            case 'setLiquids':
+            case 'setIngredients':
                 Config.set('liquids', message.liquids)
                 ws.send(
                     JSON.stringify({
-                        setLiquids: bartender.reloadLiquids()
+                        setIngredients: bartender.reloadLiquids()
                     })
                 )
                 break
