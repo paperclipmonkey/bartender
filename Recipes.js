@@ -24,39 +24,54 @@ class Recipes {
         return this.recipes
     }
 
-    getRecipeUnits(recipe) {
-        const ingredients = this.getRecipeIngredients(recipe)
-        return ingredients.reduce((total, ingredient) => {
-            if(this.ingredientsInfo[ingredient.name]) {
-                return total + (ingredient.amount * this.ingredientsInfo[ingredient.name].percentage / 1000) // Units for each item
-            } 
-            return total;
-        }, 0)
+    // Ingredients from all recipes
+    // Essentially anything that could be added
+    // To the bartender
+    getIngredients(){
+        return [
+            ...new Set( // Unique values. Ingredient name only once.
+                this.getAllRecipes()
+                    .reduce((accum, recipe) => accum.concat(this.getRecipeIngredients(recipe)),[]) // Pull ingredients from recipe
+                    .map(ingredient => ingredient.name) // Only get the name
+            )
+        ]
     }
 
+    // Add units to Recipe
+    getRecipeWithUnits(recipe) {
+        return {
+            ...recipe,
+            units: Math.round(this.getRecipeUnits(recipe) * 10) / 10
+        }
+    }
+
+    // Number of units of alcohol in the drink
+    getRecipeUnits(recipe) {
+        return this.getRecipeIngredients(recipe)
+            .reduce((total, ingredient) => {
+                return total + ingredient.amount * (this.ingredientsInfo[ingredient.name]?.percentage / 1000 || 0) 
+            }, 0)
+    }
+
+    // recipes ingredients taken from the recipe steps
+    // As objects, with amounts
     getRecipeIngredients(recipe) {
-        return recipe.steps.reduce((accum, step) => { // Loop over steps
-            return accum.concat(
-                step.ingredients.reduce((accum, ingredient) => accum.concat(ingredient), [])
+        return recipe.steps
+            .reduce((accum, step) => { // Loop over steps
+                return accum.concat(
+                    step.ingredients.reduce((accum, ingredient) => accum.concat(ingredient), [])
                 )
-        }, [])
+            }, [])
     }
 
     // List the available recipes
-    // given these ingredients
+    // refactor to use getRecipeIngredients
     getAvailableRecipes(availableIngredients = []) {
-        return this.recipes.filter((recipe) => {
-            return !recipe.steps.reduce((accumm, step) => { // Loop over steps. Negate result
-                return accumm || step.ingredients.reduce((accum, ingredient) => { // Loop over ingredients
-                    return accum || !availableIngredients.includes(ingredient.name) // Check if exists
-                }, false) // False means found
-            }, false) // True means not found
-        }).map((recipe) => {
-            return {
-                ...recipe,
-                units: this.getRecipeUnits(recipe)
-            }
-        })
+        return this.getAllRecipes().filter((recipe) => {
+            return this.getRecipeIngredients(recipe)
+                .map(ingredient => ingredient.name) // Only get the name
+                .every(ingredient => availableIngredients.includes(ingredient)) // Ensure every item is available
+        }).map((recipe) => this.getRecipeWithUnits(recipe))
     }
 }
 
