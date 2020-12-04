@@ -6,26 +6,23 @@ const Config = require('./Config.js')
 class Bartender {
     constructor() {
         this.liquids = {}
-        this.setup(Config.get('liquids'))
+        this.setup(Config.config)
     }
 
-    setup(liquids) {
-        for (const [name, value] of Object.entries(liquids)) {
-            this.liquids[name] = value.type === 'optic' ?
-                new Optic(name, value.pin)
-                : new Pump(name, value.pin)
-        }
+    setup(config) {
+        config.optics.forEach((name, pin) => this.liquids[name] = new Optic(name, pin))
+        config.pumps.forEach((name, pin) => this.liquids[name] = new Pump(name, pin))
     }
 
     // Estimate the dispense duration in ms
     dispenseDuration(ingredient, amount) {
-        if (!ingredient in this.liquids) return Logging.log(`ingredient ${ingredient} not found`)
+        if (!(ingredient in this.liquids)) return Logging.log(`ingredient ${ingredient} not found`)
         return this.liquids[ingredient].dispenseDuration(amount)
     }
 
     // Perform a dispense of an ingredient
     async dispense(ingredient, amount) {
-        if (!ingredient in this.liquids) return Logging.log(`ingredient ${ingredient} not found`)
+        if (!(ingredient in this.liquids)) return Logging.log(`ingredient ${ingredient} not found`)
         await this.liquids[ingredient].dispense(amount)
     }
 
@@ -64,7 +61,7 @@ class Bartender {
 
     reloadIngredients() {
         this.liquids = {}
-        this.setup(Config.get('liquids'))
+        this.setup(Config.config)
         return true
     }
 }

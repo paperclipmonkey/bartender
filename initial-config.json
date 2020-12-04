@@ -1,32 +1,13 @@
 {
-    "liquids": {
-        "gin": {
-            "pin": 0,
-            "type": "optic"
-        },
-        "tequila": {
-            "pin": 2,
-            "type": "optic"
-        },
-        "vermouth": {
-            "pin": 3,
-            "type": "optic"
-        },
-        "vodka": {
-            "pin": 0,
-            "type": "pump"
-        },
-        "lemonade": {
-            "pin": 1,
-            "type": "pump"
-        },
-        "oj": {
-            "pin": 2,
-            "type": "pump"
-        },
-        "coke": {
-            "pin": 3,
-            "type": "pump"
-        }
-    }
+    "optics": [
+        "gin",
+        "tequila",
+        "vermouth"
+    ],
+    "pumps": [
+        "vodka",
+        "lemonade",
+        "oj",
+        "coke"
+    ]
 }

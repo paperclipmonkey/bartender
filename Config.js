@@ -17,6 +17,10 @@ class Config {
         return this.index(this.config, key, value)
     }
 
+    getAllAvailable() {
+        return [...this.config.optics, ...this.config.pumps]
+    }
+
     // https://stackoverflow.com/questions/6393943/convert-javascript-string-in-dot-notation-into-an-object-reference
     index(obj, is, value) {
         if (typeof is == 'string')

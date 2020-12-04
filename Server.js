@@ -4,7 +4,6 @@ const Bartender = require('./Bartender.js')
 const Recipes = require('./Recipes.js')
 const Logging = require('./Logging.js')
 const Config = require('./Config.js')
-const recipes = require('./Recipes.js')
 
 const port = process.env.PORT || 8080
 
@@ -48,7 +47,7 @@ wss.on('connection', function connection(ws) {
 
             case 'recipes':
                 ws.send(JSON.stringify({
-                    recipes: Recipes.getAvailableRecipes(Object.keys(Config.get('liquids')))
+                    recipes: Recipes.getAvailableRecipes(Config.getAllAvailable())
                 }))
                 break
             
@@ -63,16 +62,16 @@ wss.on('connection', function connection(ws) {
             case 'getIngredientsAvailable':
                 ws.send(
                     JSON.stringify({
-                        getIngredientsAvailable: Config.get('liquids')
+                        getIngredientsAvailable: Config.getAllAvailable()
                     })
                 )
                 break
                 
             case 'setIngredientsAvailable':
-                Config.set('liquids', message.liquids)
+                Config.config = message.available
                 ws.send(
                     JSON.stringify({
-                        setIngredientsAvailable: bartender.reloadLiquids()
+                        setIngredientsAvailable: bartender.reloadIngredients()
                     })
                 )
                 break
