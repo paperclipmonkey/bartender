@@ -1,0 +1,30 @@
+{
+    "name": "Sex on the beach",
+    "description": "",
+    "intro": "",
+    "pre": "",
+    "post": "",
+    "glass": "martini",
+    "steps": [
+        {
+            "ingredients": [
+                {
+                    "name": "vodka",
+                    "amount": 50
+                },
+                {
+                    "name": "peach schnapps",
+                    "amount": 25
+                },
+                {
+                    "name": "oj",
+                    "amount": 50
+                },
+                {
+                    "name": "cranberry juice",
+                    "amount": 50
+                }
+            ]
+        }
+    ]
+}

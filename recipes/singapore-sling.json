@@ -1,0 +1,42 @@
+{
+    "name": "Singapore Sling",
+    "description": "",
+    "intro": "",
+    "pre": "",
+    "post": "",
+    "glass": "tumbler",
+    "steps": [
+        {
+            "ingredients": [
+                {
+                    "name": "gin",
+                    "amount": 25
+                },
+                {
+                    "name": "cherry brandy",
+                    "amount": 25
+                },
+                {
+                    "name": "benedictine",
+                    "amount": 25
+                },
+                {
+                    "name": "Angostura bitters",
+                    "amount": 10
+                },
+                {
+                    "name": "pineapple juice",
+                    "amount": 50
+                },
+                {
+                    "name": "lime juice",
+                    "amount": 25
+                },
+                {
+                    "name": "sparkling water",
+                    "amount": 50
+                }
+            ]
+        }
+    ]
+}

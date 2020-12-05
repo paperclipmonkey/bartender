@@ -1,0 +1,26 @@
+{
+    "name": "Cuba Libre",
+    "description": "",
+    "intro": "",
+    "pre": "",
+    "post": "",
+    "glass": "tumbler",
+    "steps": [
+        {
+            "ingredients": [
+                {
+                    "name": "lime juice",
+                    "amount": 20
+                },
+                {
+                    "name": "rum",
+                    "amount": 50
+                },
+                {
+                    "name": "coke",
+                    "amount": 100
+                }
+            ]
+        }
+    ]
+}

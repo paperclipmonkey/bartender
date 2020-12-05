@@ -1,0 +1,26 @@
+{
+    "name": "Malibu Beach",
+    "description": "",
+    "intro": "",
+    "pre": "",
+    "post": "",
+    "glass": "martini",
+    "steps": [
+        {
+            "ingredients": [
+                {
+                    "name": "malibu",
+                    "amount": 70
+                },
+                {
+                    "name": "oj",
+                    "amount": 70
+                },
+                {
+                    "name": "cranberry",
+                    "amount": 70
+                }
+            ]
+        }
+    ]
+}

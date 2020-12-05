@@ -1,0 +1,42 @@
+{
+    "name": "New York Sour",
+    "description": "",
+    "intro": "",
+    "pre": "",
+    "post": "",
+    "glass": "tumbler",
+    "steps": [
+        {
+            "ingredients": [
+                {
+                    "name": "rye whiskey",
+                    "amount": 50
+                },
+                {
+                    "name": "lemon juice",
+                    "amount": 25
+                },
+                {
+                    "name": "simple syrup",
+                    "amount": 15
+                },
+                {
+                    "name": "orange bitters",
+                    "amount": 10
+                },
+                {
+                    "name": "red wine",
+                    "amount": 20
+                },
+                {
+                    "name": "lime juice",
+                    "amount": 25
+                },
+                {
+                    "name": "sparkling water",
+                    "amount": 50
+                }
+            ]
+        }
+    ]
+}
