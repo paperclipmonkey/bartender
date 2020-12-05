@@ -1,0 +1,34 @@
+{
+    "name": "Pink vodka lemonade",
+    "description": "",
+    "intro": "",
+    "pre": "Add some ice cubes to a tumbler",
+    "post": "",
+    "glass": "tumbler",
+    "steps": [
+        {
+            "ingredients": [
+                {
+                    "name": "lemonade",
+                    "amount": 200
+                },
+                {
+                    "name": "vodka",
+                    "amount": 75
+                }
+            ]
+        },
+        {
+            "ingredients": [
+                {
+                    "name": "lime",
+                    "amount": 25
+                },
+                {
+                    "name": "cranberry",
+                    "amount": 50
+                }
+            ]
+        }
+    ]
+}

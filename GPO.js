@@ -27,7 +27,7 @@ class GPO {
     
     setup() {
         if (!ENABLED) return
-        mcp = new MCP23017(this.options.device, this.options.address);
+        mcp = new MCP23017(this.options.device, this.options.address)
 
         //set all GPIOS to be OUTPUTS
         for (let pin = 0; pin < 16; pin++) {

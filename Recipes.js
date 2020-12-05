@@ -7,7 +7,7 @@ class Recipes {
     constructor() {
         this.recipes = []
         this.ingredientsInfo = []
-        this.setup();
+        this.setup()
     }
 
     // Read the recipes from directory
@@ -15,8 +15,8 @@ class Recipes {
         fs.readdirSync(RECIPE_DIRECTORY).forEach((file) => {
                 this.recipes.push(
                         JSON.parse(fs.readFileSync(path.join(RECIPE_DIRECTORY, file), 'utf8'))
-                    );
-            });
+                    )
+            })
         this.ingredientsInfo = JSON.parse(fs.readFileSync('./ingredients-info.json'))
     }
 
@@ -34,7 +34,7 @@ class Recipes {
                     .reduce((accum, recipe) => accum.concat(this.getRecipeIngredients(recipe)),[]) // Pull ingredients from recipe
                     .map(ingredient => ingredient.name) // Only get the name
             )
-        ]
+        ].sort()
     }
 
     // Add units to Recipe
@@ -77,4 +77,4 @@ class Recipes {
 
 const recipes = new Recipes()
 
-module.exports = recipes;
+module.exports = recipes

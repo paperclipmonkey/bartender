@@ -6,7 +6,7 @@ const Config = require('./Config.js')
 class Bartender {
     constructor() {
         this.liquids = {}
-        this.setup(Config.config)
+        this.setup(Config.getConfig())
     }
 
     setup(config) {
@@ -61,7 +61,7 @@ class Bartender {
 
     reloadIngredients() {
         this.liquids = {}
-        this.setup(Config.config)
+        this.setup(Config.getConfig())
         return true
     }
 }

@@ -16,4 +16,4 @@ class Logging {
 
 const logging = new Logging()
 
-module.exports = logging;
+module.exports = logging

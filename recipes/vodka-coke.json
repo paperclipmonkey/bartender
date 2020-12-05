@@ -1,0 +1,22 @@
+{
+    "name": "Vodka & Coke",
+    "description": "",
+    "intro": "",
+    "pre": "Add some ice cubes to a tumbler",
+    "post": "",
+    "glass": "tumbler",
+    "steps": [
+        {
+            "ingredients": [
+                {
+                    "name": "vodka",
+                    "amount": 75
+                },
+                {
+                    "name": "coke",
+                    "amount": 250
+                }
+            ]
+        }
+    ]
+}

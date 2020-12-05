@@ -62,13 +62,13 @@ wss.on('connection', function connection(ws) {
             case 'getIngredientsAvailable':
                 ws.send(
                     JSON.stringify({
-                        getIngredientsAvailable: Config.getAllAvailable()
+                        getIngredientsAvailable: Config.getConfig()
                     })
                 )
                 break
                 
             case 'setIngredientsAvailable':
-                Config.config = message.available
+                Config.setConfig(message.available)
                 ws.send(
                     JSON.stringify({
                         setIngredientsAvailable: bartender.reloadIngredients()
