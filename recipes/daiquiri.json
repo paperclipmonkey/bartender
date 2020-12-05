@@ -1,5 +1,5 @@
 {
-    "name": "Cuba Libre",
+    "name": "Daiquiri",
     "description": "",
     "intro": "",
     "pre": "",
@@ -9,16 +9,16 @@
         {
             "ingredients": [
                 {
-                    "name": "lime juice",
-                    "amount": 20
-                },
-                {
                     "name": "rum",
                     "amount": 50
                 },
                 {
-                    "name": "coke",
-                    "amount": 100
+                    "name": "lime juice",
+                    "amount": 25
+                },
+                {
+                    "name": "simple syrup",
+                    "amount": 10
                 }
             ]
         }
