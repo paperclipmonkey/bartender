@@ -49,7 +49,7 @@ class Recipes {
     getRecipeUnits(recipe) {
         return this.getRecipeIngredients(recipe)
             .reduce((total, ingredient) => {
-                return total + ingredient.amount * (this.ingredientsInfo[ingredient.name]?.percentage / 1000 || 0) 
+                return total + ingredient.amount * (this.ingredientsInfo[ingredient.name] ? this.ingredientsInfo[ingredient.name].percentage / 1000 : 0)
             }, 0)
     }
 
