@@ -8,9 +8,8 @@
 <div id="messages"></div>
 
 <script>
-  let url = 'ws://raspberrypi.local:8080/'
-  // let url = 'ws://localhost:8080/'
-let socket = new WebSocket(url);
+let url = 'ws://192.168.0.171:8080/'
+// let url = 'ws://localhost:8080/'
 
 // send message from the form
 document.forms.publish.onsubmit = function() {
@@ -20,13 +19,25 @@ document.forms.publish.onsubmit = function() {
   return false;
 };
 
-// handle incoming messages
-socket.onmessage = function(event) {
-  let incomingMessage = event.data;
-  showMessage(incomingMessage);
-};
+function setup() {
+    window.socket = new WebSocket(url);
 
-socket.onclose = event => console.log(`Closed ${event.code}`);
+    // handle incoming messages
+    socket.onmessage = function (event) {
+      let incomingMessage = event.data;
+      showMessage(incomingMessage);
+    };
+
+    socket.onclose = event => {
+      console.log(`Closed ${event.code}`)
+      setTimeout(() => {
+        setup()
+      }, 5000)
+    };
+}
+
+setup();
+
 
 // show message in div#messages
 function showMessage(message) {
