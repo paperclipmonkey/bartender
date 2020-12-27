@@ -12,6 +12,9 @@ const bartender = new Bartender()
 const wss = new WebSocket.Server({ port })
 
 Logging.log(`Starting WebSocket server on port ${port}`)
+Logging.log(`GPO is: ${process.env.GPO}`)
+Logging.log(`Optics is: ${process.env.SERVOS}`)
+Logging.log(`Starting WebSocket server on port ${port}`)
 
 wss.on('connection', function connection(ws) {
 
