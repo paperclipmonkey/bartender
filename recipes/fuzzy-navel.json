@@ -10,11 +10,11 @@
             "ingredients": [
                 {
                     "name": "schnapps",
-                    "amount": 200
+                    "amount": 100
                 },
                 {
                     "name": "oj",
-                    "amount": 200
+                    "amount": 100
                 }
             ]
         }
