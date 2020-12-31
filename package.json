@@ -4,7 +4,7 @@
   "description": "A remote bartender",
   "main": "Server.js",
   "scripts": {
-    "watch": "pm2 start Server.js --watch",
+    "watch": "pm2 start ecosystem.config.js",
     "pm2": "pm2"
   },
   "author": "",
