@@ -47,7 +47,7 @@ class Bartender {
     // Estimate how long it'll take to dispense the drink
     makeDuration(recipe) {
         return recipe.steps.reduce((accum, step) => { // Add all the steps together
-            return accum + this.performStepDuration(step)
+            return accum + (this.performStepDuration(step) || 0)
         }, 0)
     }
 
