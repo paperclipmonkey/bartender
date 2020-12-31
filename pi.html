@@ -1,6 +1,21 @@
 <!doctype html>
 <form name="publish">
-  <textarea rows="10" cols="50" name="message">{"type":"make","recipe":{"steps":[{"ingredients":[{"name":"gin","amount":50},{"name":"vodka","amount":25}]},{"ingredients":[{"name":"soda","amount":100},{"name":"lemonade","amount":200}]}]}}
+  <textarea rows="10" cols="50" name="message">
+    {
+      "type":"make",
+      "recipe":{
+        "steps":[
+          {"ingredients":[
+            {"name":"gin","amount":50},
+            {"name":"vodka","amount":25}
+          ]},
+          {"ingredients":[
+            {"name":"soda","amount":100},
+            {"name":"lemonade","amount":200}
+            ]}
+        ]
+      }
+    }
   </textarea>
   <input type="submit" value="Send"/>
 </form>
