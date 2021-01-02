@@ -1,23 +1,57 @@
 require('dotenv').config()
+const Express = require('express')
+const bodyParser = require('body-parser')
 const WebSocket = require('ws')
+const http = require('http')
 const Bartender = require('./Bartender.js')
 const Recipes = require('./Recipes.js')
 const Logging = require('./Logging.js')
 const Config = require('./Config.js')
+const Routes = require('./routes.js')
 
 const port = process.env.PORT || 8080
 
-const bartender = new Bartender()
+const app = Express()
+app.use(bodyParser.json())
+const server = http.createServer(app);
 
-const wss = new WebSocket.Server({ port })
-
-Logging.log(`Starting WebSocket server on port ${port}`)
+Logging.log(`Starting server on port ${port}`)
 Logging.log(`GPO is: ${process.env.GPO}`)
 Logging.log(`Optics is: ${process.env.SERVOS}`)
-Logging.log(`Starting WebSocket server on port ${port}`)
+
+app.use(function(req,res) {
+    let message = req.body
+    // Listen to messages of type and dispatch them to function handlers
+    switch (message.type) {
+        case 'make':
+            res.write(Routes.make(message))
+            break
+        case 'recipes':
+            res.write(Routes.recipes(message))
+            break
+        case 'getIngredients':
+            res.write(Routes.getAllIngredients(message))
+            break
+        case 'getIngredientsAvailable':
+            res.write(Routes.getIngredientsAvailable(message))
+            break
+        case 'setIngredientsAvailable':
+            res.write(Routes.setIngredientsAvailable(message))
+            break
+    }
+    return res.end()
+});
+server.listen(port);
+
+const wss = new WebSocket.Server({ server });
+
+// server.on('upgrade', function upgrade(request, socket, head) {
+//     wss.handleUpgrade(request, socket, head, function done(ws) {
+//         wss.emit('connection', ws, request);
+//     });
+// });
 
 wss.on('connection', function connection(ws) {
-
     // When a new client connects register them as the new log listener
     Logging.registerListener((log) => {
         try {
@@ -38,45 +72,19 @@ wss.on('connection', function connection(ws) {
         // Listen to messages of type and dispatch them to function handlers
         switch(message.type) {
             case 'make':
-                ws.send(JSON.stringify({
-                    estimate: bartender.makeDuration(message.recipe)
-                }))
-                bartender.make(message.recipe, () => {
-                    ws.send(JSON.stringify({
-                        status: 'done'
-                    }))
-                })
+                ws.send(Routes.make(message, ws))
                 break
-
             case 'recipes':
-                ws.send(JSON.stringify({
-                    recipes: Recipes.getAvailableRecipes(Config.getAllAvailable())
-                }))
+                ws.send(Routes.recipes(message, ws))
                 break
-            
             case 'getIngredients':
-                ws.send(
-                    JSON.stringify({
-                        getIngredients: Recipes.getIngredients()
-                    })
-                )
+                ws.send(Routes.getAllIngredients(message, ws))
                 break
-
             case 'getIngredientsAvailable':
-                ws.send(
-                    JSON.stringify({
-                        getIngredientsAvailable: Config.getConfig()
-                    })
-                )
+                ws.send(Routes.getIngredientsAvailable(message, ws))
                 break
-                
             case 'setIngredientsAvailable':
-                Config.setConfig(message.available)
-                ws.send(
-                    JSON.stringify({
-                        setIngredientsAvailable: bartender.reloadIngredients()
-                    })
-                )
+                ws.send(Routes.setIngredientsAvailable(message, ws))
                 break
         }
     })
