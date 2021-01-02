@@ -10,15 +10,15 @@
             "ingredients": [
                 {
                     "name": "sparkling wine",
-                    "amount": 200
+                    "amount": 100
                 },
                 {
                     "name": "oj",
-                    "amount": 200
+                    "amount": 100
                 },
                 {
                     "name": "vodka",
-                    "amount": 50
+                    "amount": 25
                 }
             ]
         }

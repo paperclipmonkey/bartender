@@ -10,11 +10,11 @@
             "ingredients": [
                 {
                     "name": "lemonade",
-                    "amount": 200
+                    "amount": 100
                 },
                 {
                     "name": "vodka",
-                    "amount": 75
+                    "amount": 50
                 }
             ]
         },
@@ -22,11 +22,11 @@
             "ingredients": [
                 {
                     "name": "lime",
-                    "amount": 25
+                    "amount": 15
                 },
                 {
                     "name": "cranberry",
-                    "amount": 50
+                    "amount": 25
                 }
             ]
         }

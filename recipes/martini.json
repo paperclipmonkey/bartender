@@ -10,11 +10,11 @@
             "ingredients": [
                 {
                     "name": "gin",
-                    "amount": 200
+                    "amount": 100
                 },
                 {
                     "name": "vermouth",
-                    "amount": 50
+                    "amount": 25
                 }
             ]
         }
