@@ -40,15 +40,17 @@ class Bartender {
     // Estimate time to dispense for step
     performStepDuration(step) {
         return Math.max(...step.ingredients.map((ingredient) => { // Find the longest duration in the step
-            return this.dispenseDuration(ingredient.name, ingredient.amount)
+            return this.dispenseDuration(ingredient.name, ingredient.amount) || 0
         }))
     }
 
     // Estimate how long it'll take to dispense the drink
     makeDuration(recipe) {
-        return recipe.steps.reduce((accum, step) => { // Add all the steps together
-            return accum + (this.performStepDuration(step) || 0)
-        }, 0)
+        return Math.ceil(
+            recipe.steps.reduce((accum, step) => { // Add all the steps together
+                return accum + (this.performStepDuration(step) || 0)
+            }, 0)
+        )
     }
 
     async make(recipe, cback) {
