@@ -4,7 +4,6 @@ const bodyParser = require('body-parser')
 const WebSocket = require('ws')
 const http = require('http')
 const Bartender = require('./Bartender.js')
-const Recipes = require('./Recipes.js')
 const Logging = require('./Logging.js')
 const Config = require('./Config.js')
 const Routes = require('./routes.js')
@@ -26,6 +25,9 @@ app.use(function(req,res) {
         case 'make':
             res.write(Routes.make(message))
             break
+        case 'makeRecipe':
+            res.write(Routes.makeRecipe(message))
+            break
         case 'recipes':
             res.write(Routes.recipes(message))
             break
@@ -38,6 +40,8 @@ app.use(function(req,res) {
         case 'setIngredientsAvailable':
             res.write(Routes.setIngredientsAvailable(message))
             break
+        default:
+            res.write("Drinks Maker")
     }
     return res.end()
 });
@@ -73,6 +77,9 @@ wss.on('connection', function connection(ws) {
         switch(message.type) {
             case 'make':
                 ws.send(Routes.make(message, ws))
+                break
+            case 'makeRecipe':
+                ws.send(Routes.makeRecipe(message, ws))
                 break
             case 'recipes':
                 ws.send(Routes.recipes(message, ws))

@@ -19,6 +19,23 @@ function make(message, ws) {
     })
 }
 
+function makeRecipe(message, ws) {
+    // Find the recipe
+    const recipe = Recipes.getAllRecipes().find(recipe => recipe.name.toLowerCase() === message.recipe.toLowerCase())
+    if (!recipe) return JSON.stringify({error: "Not found"})
+    bartender.make(recipe, () => {
+        try {
+            ws.send(JSON.stringify({
+                status: 'done'
+            }))
+        } catch (e) { }
+    })
+
+    return JSON.stringify({
+        estimate: bartender.makeDuration(recipe)
+    })
+}
+
 function recipes(message, ws) {
     return JSON.stringify({
         recipes: Recipes.getAvailableRecipes(Config.getAllAvailable())
@@ -46,6 +63,7 @@ function setIngredientsAvailable(message, ws) {
 
 module.exports = {
     make,
+    makeRecipe,
     recipes,
     getAllIngredients,
     getIngredientsAvailable,
