@@ -21,7 +21,9 @@ function make(message, ws) {
 
 function makeRecipe(message, ws) {
     // Find the recipe
-    const recipe = Recipes.getAllRecipes().find(recipe => recipe.name.toLowerCase() === message.recipe.toLowerCase())
+    let recipeName = message.recipe.toLowerCase()
+        .replace(' a ', '')// Fixes issue with Google Assistant sending 'a mimosa'
+    const recipe = Recipes.getAllRecipes().find(recipe => recipe.name.toLowerCase() === recipeName)
     if (!recipe) return JSON.stringify({error: "Not found"})
     bartender.make(recipe, () => {
         try {
