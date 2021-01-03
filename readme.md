@@ -17,7 +17,15 @@ The websocket supports the commands:
 
 
 ## Recipes
-See [recipes.md](./recipes.md)
+See [docs/recipes.md](./docs/recipes.md)
 
 ## Hardware
-See [hardware.md](./hardware.md)
+See [docs/hardware.md](./docs/hardware.md)
+
+## Google Home
+Google home integration is done using [IFTTT](https://ifttt.com/home). It's listening to a phrase using Google Assistant integration, and calling a webhook with a parameter to control the bartender.
+The body of the request is: 
+
+```json
+{"type":"makeRecipe","recipe":" {{TextField}}"}
+```
