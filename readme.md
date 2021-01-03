@@ -20,4 +20,4 @@ The websocket supports the commands:
 See [recipes.md](./recipes.md)
 
 ## Hardware
-See [hardware.md](./recipes.md)
+See [hardware.md](./hardware.md)
