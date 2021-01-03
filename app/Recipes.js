@@ -1,7 +1,7 @@
 const path = require('path')
 const fs = require('fs')
 
-const RECIPE_DIRECTORY = './recipes'
+const RECIPE_DIRECTORY = '../recipes'
 
 /**
  * Handle all recipes

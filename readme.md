@@ -4,7 +4,7 @@ Raspberry Pi drinks mixer.
 Controllable through a websocket or HTTP using JSON.
 
 ## Running
-To run, perform an install of the npm modules `npm install` then start the WebSocket server using `node Server.js` or `npm run watch` to watch for changes in the source code.
+To run, perform an install of the npm modules `npm install` then start the WebSocket server using `node app/Server.js` or `npm run watch` to watch for changes in the source code.
 
 ## Commands
 The websocket supports the commands:

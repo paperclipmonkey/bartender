@@ -1,15 +1,17 @@
 const fs = require('fs')
-
+/**
+ * Keep track of optics and pumps configured.
+ * Save the config out to a json file for consistency between startups
+ */
 class Config {
     constructor() {
         this.config = this._loadConfig()
     }
 
     _loadConfig() {
-        return require('./config.json')
+        return require('../config/config.json')
     }
 
-    // [optics:[], pumps:[]]
     getConfig() {
         return this.config
     }
