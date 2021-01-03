@@ -3,6 +3,11 @@ const fs = require('fs')
 
 const RECIPE_DIRECTORY = './recipes'
 
+/**
+ * Handle all recipes
+ * Loads them from sub folder
+ * Supports getting recipes we can currently make with the ingredients available
+ */
 class Recipes {
     constructor() {
         this.recipes = []
