@@ -23,8 +23,10 @@
 <div id="messages"></div>
 
 <script>
-let url = 'ws://192.168.0.171:8080/'
-// let url = 'ws://localhost:8080/'
+// Test the bartender by sending JSON commands.
+// Useful for checking everything is configured correctly.
+let url = 'ws://bartender.local:8080/' // Pi server name. Uses mDNS
+// let url = 'ws://localhost:8080/' // Local development server
 
 // send message from the form
 document.forms.publish.onsubmit = function() {
@@ -46,7 +48,7 @@ function setup() {
     socket.onclose = event => {
       console.log(`Closed ${event.code}`)
       setTimeout(() => {
-        setup()
+        setup() // Attempt reconnect after 5 seconds
       }, 5000)
     };
 }

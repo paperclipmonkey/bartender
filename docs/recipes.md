@@ -27,8 +27,16 @@ Each recipe is a JSON document that lives in the recipes folder. They follow a s
                 },
                 {
                     "name": "cranberry",
-                    "amount": 10
+                    "amount": 10 // If on a pump it can be any ml size
                 }
+            ]
+        },
+        { // Step 2 happens after all step 1 ingredients have been dispensed
+            "ingredients": [
+                {
+                    "name": "syrup", // Ingredient name needs to match optic or pump
+                    "amount": 25 // ml to dispense. Optics are in 25ml increments
+                },
             ]
         }
     ]
